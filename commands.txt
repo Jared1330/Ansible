@@ -1,3 +1,5 @@
 ansible --version
 
 ansible -i hosts.txt all -m ping 
+
+ansible all -m ping
