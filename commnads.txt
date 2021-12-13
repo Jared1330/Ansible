@@ -1,5 +1,4 @@
-ansible --version
-
+AD_HOC
 PING: 
 ansible -i hosts.txt all -m ping 
 ansible all -m ping
@@ -38,3 +37,9 @@ ansible prod -m yum -a "name=httpd state=latest" -b -vvvv
 
 Start Apache
 ansible prod -m service -a "name=httpd state=started enabled=yes" -b
+
+
+
+
+RUN PLAYBOOK
+ansible-playbook playbook.yml
