@@ -1,0 +1,33 @@
+---
+- name:   Test connection to all servers
+  hosts:  prod
+  become: yes
+
+  tasks: 
+  - name: Ping my servers
+    ping:
+
+
+
+
+
+---
+- name: Install Apache
+  hosts: prod
+  become: yes
+  vars: 
+    server: httpd
+
+  tasks: 
+  - name: Install Apache WebServer
+    yum: name={{ server }} state=latest   
+
+  - name: Start Apache and Enable it on boot
+    service: name={{ server }} state=started enabled=yes
+
+
+
+
+
+
+
