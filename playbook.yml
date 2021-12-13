@@ -24,10 +24,3 @@
 
   - name: Start Apache and Enable it on boot
     service: name={{ server }} state=started enabled=yes
-
-
-
-
-
-
-
