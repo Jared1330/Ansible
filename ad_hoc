@@ -1,0 +1,40 @@
+ansible --version
+
+PING: 
+ansible -i hosts.txt all -m ping 
+ansible all -m ping
+ansible prod -m ping
+
+Show server details: 
+ansible prod -m setup
+
+Run shell command: 
+ansible prod -m shell -a "uptime"
+OR (is not working with env vars)
+ansible prod -m command -a "uptime"
+
+Copy file: 
+ansible all -m copy -a "src=file.txt dest=/home" -b
+, where -b means run as sudo user
+
+Remove file: 
+ansible prod -m file -a "path=/home/file.txt state=absent" -b
+
+Download file: 
+ansible all -m get_url -a "url=  dest=/home" -b
+
+Install package: 
+ansible prod -m yum -a "name=stress state=latest" -b
+
+Remove package: 
+ansible prod -m yum -a "name=stress state=removed" -b
+
+Check if server can connect to site: 
+ansible all -m uri -a "url=http://google.com return_content=yes"
+
+Install Apache
+ansible prod -m yum -a "name=httpd state=latest" -b -vvvv
+, where vvvv is verbose (show more logs) 
+
+Start Apache
+ansible prod -m service -a "name=httpd state=started enabled=yes" -b
