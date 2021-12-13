@@ -1,7 +1,2 @@
 [prod]
 linux1  ansible_host=123.123.123.123
-
-
-[prod:vars]
-ansible_user=user
-ansible_ssh_private_key_file=/.../....pem
