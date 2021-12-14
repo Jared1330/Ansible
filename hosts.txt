@@ -1,2 +1,5 @@
 [prod]
-linux1  ansible_host=123.123.123.123
+linux1  ansible_host=
+
+[demo]
+linux2  ansible_host=
