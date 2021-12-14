@@ -13,14 +13,18 @@
 
 ---
 - name: Install Apache
-  hosts: prod
+  hosts: all
   become: yes
-  vars: 
-    server: httpd
 
   tasks: 
   - name: Install Apache WebServer
-    yum: name={{ server }} state=latest   
+    yum: name=httpd state=latest
 
   - name: Start Apache and Enable it on boot
-    service: name={{ server }} state=started enabled=yes
+    service: name=httpd state=started enabled=yes
+    notify: Restart Apache
+
+  handlers: 
+  - name: Restart Apache
+    service: name=httpd state=restarted
+
