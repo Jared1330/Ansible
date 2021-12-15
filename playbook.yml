@@ -1,5 +1,5 @@
 ---
-- name:   Test connection to all servers
+- name:   Ping
   hosts:  prod
   become: yes
 
@@ -29,7 +29,6 @@
     service: name=httpd state=restarted
     
     
-   
    
    
 ---
@@ -67,3 +66,18 @@ handlers:
     service: name=apache2 state=restarted
 
 
+
+
+
+---
+- name: Loops
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install many packges
+      yum: name={{ item }} state=installed
+      with_items:
+        - tree
+        - python
+        - htop
