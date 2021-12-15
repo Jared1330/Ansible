@@ -39,7 +39,10 @@ Start Apache
 ansible prod -m service -a "name=httpd state=started enabled=yes" -b
 
 
-
-
-RUN PLAYBOOK
+Run Playbook
 ansible-playbook playbook.yml
+
+
+Create role
+mkdir roles && cd roles
+ansible-galaxy init deploy_apache_web
