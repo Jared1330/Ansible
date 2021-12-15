@@ -90,6 +90,7 @@ handlers:
 ---
 - name:   Ignore Errors
   hosts:  prod
+  #any_errors_fatal: true ==>stop if any mistake 
   become: yes
 
   tasks: 
