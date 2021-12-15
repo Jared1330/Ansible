@@ -1,5 +1,10 @@
-[prod]
-linux1  ansible_host=
+[amazon]
+amazon_1  ansible_host=
+amazon_2  ansible_host=
 
-[demo]
-linux2  ansible_host=
+[ubuntu]
+ubuntu_1  ansible_host=
+
+[linux:children]
+amazon
+ubuntu
