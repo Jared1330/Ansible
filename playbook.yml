@@ -81,3 +81,21 @@ handlers:
         - tree
         - python
         - htop
+
+
+
+
+
+
+---
+- name:   Ignore Errors
+  hosts:  prod
+  become: yes
+
+  tasks: 
+  - name: Install apache with mistake
+    yum: name=httpddddddd state=latest
+    ignore_errors: yes
+    
+  - name: Install apache
+    yum: name=httpd state=latest
