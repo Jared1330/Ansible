@@ -46,3 +46,20 @@ ansible-playbook playbook.yml
 Create role
 mkdir roles && cd roles
 ansible-galaxy init deploy_apache_web
+
+
+Vault
+ansible-vault create secret.txt # for file
+ansible-vault view secret.txt
+ansible-vault edit secret.txt
+ansible-vault rekey secret.txt # change pass
+
+ansible-vault encrypt playbook.yml # for playbook
+ansible-vault view playbook.yml
+ansible-playbook playbook.yml --ask-vault-pass
+
+Encrypt string:
+ansible-vault encrypt_string ==> type password
+OR 
+echo -n "PASSWORD" |  ansible-vault encrypt_string
+ansible-playbook playbook.yml --ask-vault-pass
